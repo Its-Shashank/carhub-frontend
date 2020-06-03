@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { login, authenticate } from '../../apiCalls/auth'
-import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
     constructor(props) {

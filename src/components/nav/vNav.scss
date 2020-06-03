@@ -1,0 +1,59 @@
+$darkBlue: rgb(40,44,52);
+$blue: rgb(97,218,251);
+$w: rgb(255, 255, 255);
+
+.menu-icon {
+    color: $w;
+    padding: 10px;
+    transition: 300ms;
+    &:hover {
+        background-color: rgba(76, 80, 90, 0.9);
+        transition: 300ms;
+    }
+}
+.drawer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background-color: $darkBlue;
+    .vertical-nav-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5%;
+        .vertical-link {
+            text-decoration: none;
+            margin: 10px;
+            padding: 5px;
+            font-size: 1.5rem;
+            color: $w;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    .close-icon {
+        margin-right: 40px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 300ms;
+        padding: 10px;
+        height: 20px;
+        color: $w;
+        width: 20px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(76, 80, 90, 0.9);
+            transition: 300ms;
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .vnav-container {
+        display: none;
+        margin-right: 10%;
+    }
+}
