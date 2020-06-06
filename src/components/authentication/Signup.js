@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './auth.scss'
 import { signup } from '../../apiCalls/auth'
+import Navbar from '../nav/Navbar'
 
 class Signup extends Component {
     constructor(props) {
@@ -39,6 +40,7 @@ class Signup extends Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <form className='form-data' onSubmit={this.handleSubmit}>
                     <input type="text" name="name" onChange={this.handleChange} />
                     <input type="email" name="email" onChange={this.handleChange} />

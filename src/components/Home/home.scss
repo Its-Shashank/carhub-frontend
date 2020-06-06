@@ -1,0 +1,234 @@
+$darkBlue: rgb(40,44,52);
+$blue: rgb(97,218,251);
+$w: rgb(255, 255, 255);
+$purpleOne: #C33764;  /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #FFAFBD;  /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ 
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+.home-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-position: center;
+    //filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    margin-top: 5vh;
+
+    .home-header {
+        // font-family: 'B612', sans-serif;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.5em;
+        width: 40%;
+        color: $w;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15vw;
+        margin-top: -5vh;
+        // align-items: center;
+
+        h1 {
+            font-size: 3em;
+            font-weight: 400;
+            // background-color: $dullYellow;
+        }
+
+        h3 {
+            font-weight: 100;
+        }
+        .button-1 {
+            cursor: pointer;
+            height: 3rem;
+            width: 10rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            border: $w solid 1px;
+            color: $w;
+            font-size: 1.1rem;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+// card list just below top background
+
+.card-list {
+    display: flex;
+    margin-left: 15vw;
+    transform: translateY(-3rem);
+    .MuiPaper-root {
+        height: 10rem;
+        width: 17rem;
+        // margin: auto;
+        margin-right: 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .MuiSvgIcon-root {
+            color: $lightOrange;
+            font-size: 50px;
+        }
+    }
+}
+
+.about-here {
+    background-color: rgb(243, 243, 241);
+    height: 30vh;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh auto;
+    padding: 5rem 11rem;
+    width: 80%;
+}
+
+// services button section below
+
+.button-section {
+    height: 70vh;
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .btn-pair {
+        display: flex;
+        flex-direction: column;
+        // width: 100%;
+        .home-btns {
+            cursor: pointer;
+            height: 10vh;
+            width: 15vw;
+            background-color: transparent;
+            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+            0 6px 30px 5px rgba(0, 0, 0, 0.12), 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 1.5em;
+            background-color: $lightOrange;
+            color: $w;
+            border: none;
+            margin: 5vh 0;
+            transition: 300ms;
+    
+            &:hover {
+                color: $lightOrange;
+                border: $lightOrange solid 4px;
+                background-color: $w;
+                transition: 300ms;
+            }
+        }
+    }
+}
+
+// city section and footer section starts here.
+
+.city-section-background {
+    height: 50vh;
+    background-color: $darkBlue;
+    padding-top: 5vh;
+    display: flex;
+    justify-content: center;
+    .city-section {
+        width: 70%;
+        #city-head {
+            margin: 5vh 0 5vh 41%;
+            color: $purpleOne;
+            font-weight: 400;
+        }
+        .cities-list {
+            // margin-top: 5vh;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+
+            .cities {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5em;
+                // background-color: $lightOrange;
+                // background: $lightGradient;
+                // background: $lightGradient2;
+                background-color: rgba(220, 220, 220, 0.2);
+                border-radius: 10px;
+                height: 15vh;
+                margin: 2rem 3rem;
+                color: $lightOrange;
+            }
+            .slick-arrow {
+                background-color: transparent;
+                height: 50px;
+                width: 50px;
+            }
+            .slick-prev::before, .slick-next::before {
+                color: $purpleOne;
+                font-size: 40px;
+            }
+            .slick-prev::before {
+                margin-left: -4rem;
+            }
+            .slick-next::before {
+                margin-left: 3rem;
+            }
+            // .MuiCard-root {
+            //     margin: 0 2vw;
+            //     // color: $w;
+            //     text-align: center;
+            //     font-size: 1.5em;
+            // }
+        }
+    }
+}
+
+.footer-container {
+    margin-top: -5vh;
+    background-color: $darkBlue;
+    padding-left: 15vw;
+    height: 40vh;
+    color: $lightOrange;
+
+    .copyright {
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 8vh;
+        display: flex;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        h1 {
+            font-weight: 400;
+        }
+        .footer-links {
+            display: flex;
+            .footer-link {
+                cursor: pointer;
+                font-weight: 100;
+                margin-right: 5%;
+            }
+        }
+        .footer-icons {
+            .footer-icon {
+                cursor: pointer;
+                margin: 10px 20px 0 0;
+            }
+        }
+    }
+}

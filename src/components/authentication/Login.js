@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { login, authenticate } from '../../apiCalls/auth'
+import Navbar from '../nav/Navbar'
 
 class Login extends Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <form method="post" onSubmit={this.handleSubmit}>
                     <input type="email" name="email" onChange={this.handleChange} />
                     <input type="password" name="password" onChange={this.handleChange} />

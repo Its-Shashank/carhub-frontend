@@ -1,20 +1,41 @@
 $darkBlue: rgb(40,44,52);
 $blue: rgb(97,218,251);
 $w: rgb(255, 255, 255);
+$purpleOne: #C33764;  /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #FFAFBD;  /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 
 .nav-container {
-    background-color: $darkBlue;
+    background-color: $w;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 9vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     color: $w;
-    padding: 0 5%;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+            0 6px 30px 5px rgba(0, 0, 0, 0.12), 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        
+
     .navbar-brand {
         cursor: pointer;
+        color: #c354ab;  /* fallback for old browsers */
+        color: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+        color: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+        text-decoration: none;
         display: flex;
         align-items: center;
         font-size: 1.5em;
         list-style: none;
+        font-weight: 600;
     }
     .nav-links {
         display: flex;
@@ -24,43 +45,31 @@ $w: rgb(255, 255, 255);
             cursor: pointer;
             margin: 0 4%;
             padding: 4px 12px 6px;
-            border-radius: 15px;
             list-style: none;
             transition: 300ms;
             text-decoration: none;
             .link {
-                color: $w;
-            }
-            #different-link {
-                color: $darkBlue;
-            }
-
-            &:hover {
+                color: rgb(235, 151, 165);  /* fallback for old browsers */
+                color: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+                color: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                font-weight: 600;
+                padding: 10px;
                 transition: 300ms;
-            }
-        }
-        .nav-link:nth-child(-n+3):hover {
-            background-color: rgba(76, 80, 90, 0.9);
-        }
-        .nav-link:nth-child(4) {
-            background-color: $w;
-            color: $darkBlue;
-            font-weight: 600;
-            &:hover {
-                opacity: 0.85;
+
+                &:hover {
+                    // background: $lightOrange;
+                    // background: $lightGradient;
+                    // background: $lightGradient2;
+                    // color: $w;
+                    opacity: 0.6;
+                    transition: 300ms;
+                }
             }
         }
     }
 }
 
 @media only screen and (max-width: 1200px) {
-    .nav-container {
-        .nav-links {
-            margin-right: 10%;
-        }
-    }
-}
-@media only screen and (max-width: 900px) {
     .nav-container {
         .nav-links {
             display: none;

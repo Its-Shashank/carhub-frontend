@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {SwipeableDrawer} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { Link } from 'react-router-dom'
+import { isAuthenticated, signout } from '../../apiCalls/auth'
 import './nav.scss'
 import './vNav.scss'
 import { Menu, Close } from '@material-ui/icons'
 
-function Nav() {
-  const [state, setState] = React.useState({
+function Nav(props) {
+  const [state, setState] = useState({
     top: false
   })
+  const [name, setName] = useState('')
+  const [redirect, setRedirect] = useState(false)
+
+  const doRedirect = () => {
+    if (redirect) {
+        props.history.push('/')
+    }
+}
+  
   const toggleDrawer = (anchor, open) => event => {
     if (
       event &&
@@ -21,6 +31,12 @@ function Nav() {
 
     setState({ ...state, [anchor]: open });
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('user')) {
+      setName(JSON.parse(localStorage.getItem('user')).user.name)
+    }
+  }, [])
 
   return (
     <div className='vnav-container'>
@@ -46,7 +62,7 @@ function Nav() {
                 >
                 Home
                 </Link>
-                <Link className='vertical-link' to='/lendcar'
+                <Link className='vertical-link' to='/rentcar'
                 onClick={toggleDrawer(anchor, false)}
                 onKeyDown={toggleDrawer(anchor, false)}
                 >
@@ -58,18 +74,46 @@ function Nav() {
                 >
                 Ride
                 </Link>
-                <Link className='vertical-link' to='/login'
+
+                { !isAuthenticated() &&
+                  <Link className='vertical-link' to='/login'
+                  onClick={toggleDrawer(anchor, false)}
+                  onKeyDown={toggleDrawer(anchor, false)}
+                  >
+                  Login
+                  </Link>
+                }
+                { !isAuthenticated() &&
+                  <Link className='vertical-link' to='/signup'
+                  onClick={toggleDrawer(anchor, false)}
+                  onKeyDown={toggleDrawer(anchor, false)}
+                  >
+                  Signup
+                  </Link>
+                }
+
+                { isAuthenticated() &&
+                <Link className='vertical-link' to='/'
+                onClick={() => {
+                  toggleDrawer(anchor, false)
+                  signout(() => {
+                      setRedirect(true)
+                      doRedirect()
+                  })
+              }}
+                onKeyDown={toggleDrawer(anchor, false)}
+                >
+                  Logout
+                </Link>
+                }
+                { isAuthenticated() &&
+                <Link className='vertical-link' to='/dashboard'
                 onClick={toggleDrawer(anchor, false)}
                 onKeyDown={toggleDrawer(anchor, false)}
                 >
-                Login
+                  {name}
                 </Link>
-                <Link className='vertical-link' to='/signup'
-                onClick={toggleDrawer(anchor, false)}
-                onKeyDown={toggleDrawer(anchor, false)}
-                >
-                Signup
-                </Link>
+                }
             </div>
         </div>
             

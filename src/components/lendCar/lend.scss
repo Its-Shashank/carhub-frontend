@@ -1,0 +1,24 @@
+$darkBlue: rgb(40,44,52);
+$blue: rgb(97,218,251);
+$w: rgb(255, 255, 255);
+
+.cities-container {
+    display: flex;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    background-color: $blue;
+
+    .city {
+        cursor: pointer;
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 40%;
+}

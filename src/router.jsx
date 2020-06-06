@@ -3,25 +3,37 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import RentCar from './components/lendCar/RentCar'
 import Signup from './components/authentication/Signup'
 import Login from './components/authentication/Login'
-import Navbar from './components/nav/Navbar'
+import Home from './components/Home/Home'
+import Dashboard from './components/dashboard/Dashboard'
+import RideCar from './components/getRide/Ride'
+import PrivateRoute from './apiCalls/PrivateRoute'
 
 function router() {
     return (
         <div>
             <BrowserRouter>
-            <Navbar />
                 <Switch>
-                    {/* <Route path='/'
-                        exact component={App}
-                    /> */}
+                    <Route path='/'
+                        exact render={props => (
+                            <Home {...props} />
+                        )}
+                    />
                     <Route path='/signup'
                         exact component={Signup}
                     />
                     <Route path='/login'
-                        exact component={Login}
+                        exact render={props => (
+                            <Login {...props} />
+                        )}
                     />
-                    <Route path='/rentcar'
+                    <PrivateRoute path='/rentcar'
                         exact component={RentCar}
+                    />
+                    <Route path='/getride'
+                        exact component={RideCar}
+                    />
+                    <PrivateRoute path='/dashboard'
+                        exact component={Dashboard}
                     />
                 </Switch>
             </BrowserRouter>
