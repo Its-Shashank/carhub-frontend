@@ -6,9 +6,8 @@ export const signup = user => {
         method: 'POST',
         headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: user
     })
     .then(response => {
         return response.json()
@@ -31,6 +30,7 @@ export const login = user => {
 
 export const updateUser = (data, userId) => {
     let token = JSON.parse(localStorage.getItem('user')).token
+    console.log('hello')
     return fetch(`${API}/user/${userId}`, {
         method: 'PUT',
         headers: {
@@ -99,6 +99,22 @@ export const getCities = () => {
     .catch(err => console.log(err))
 }
 
+export const getCity = cityId => {
+    return fetch(`${API}/city/${cityId}`, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .catch(err =>console.log(err))
+}
+
+export const getCategory = categoryId => {
+    return fetch(`${API}/category/${categoryId}`, {
+        method: 'GET',
+    })
+    .then(response => response.json())
+    .catch(err => console.log(err))
+}
+
 export const getCategories = () => {
     return fetch(`${API}/categories`, {
         method: 'GET',
@@ -125,6 +141,16 @@ export const createNewCar = (car, userId) => {
     .catch(err => console.log(err))
 }
 
+export const getPhoto = (carId) => {
+    return fetch(`${API}/car/photo/${carId}`,{
+      method:"GET"
+    })
+    .then(response => {
+      return response;
+    })
+    .catch(err => console.log(err));
+  }
+
 export const getCar = carId => {
     let token = JSON.parse(localStorage.getItem('user')).token
     return fetch(`${API}/car/${carId}`, {
@@ -142,6 +168,18 @@ export const getAllCars = () => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .catch(err => console.log(err))
+}
+
+export const deleteCar = (carId, userId) => {
+    const token = JSON.parse(localStorage.getItem('user')).token
+    return fetch(`${API}/car/${carId}/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${token}`
         }
     })
     .then(response => response.json())

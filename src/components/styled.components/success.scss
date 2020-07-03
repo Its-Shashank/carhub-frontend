@@ -1,0 +1,20 @@
+.success {
+    text-align: center;
+    padding: 1vh 0;
+    color: white;
+    width: 100%;
+    font-size: 2em;
+    position: absolute;
+    animation: dropDown 1s ease-in-out 0.3s 1;
+    animation-fill-mode: forwards;
+    background-color: rgb(37, 226, 37);
+}
+
+@keyframes dropDown {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 9vh;
+    }
+}

@@ -6,20 +6,14 @@ import VNav from './vNav'
 import { isAuthenticated, signout } from '../../apiCalls/auth'
 
 const Navbar = (props) => {
-    const [redirect, setRedirect] = useState(false)
     const [name, setName] = useState('')
-
-    const doRedirect = () => {
-        if (redirect) {
-            props.history.push('/')
-        }
-    }
     
     useEffect(() => {
         if (localStorage.getItem('user')) {
-          setName(JSON.parse(localStorage.getItem('user')).user.name)
+        setName(JSON.parse(localStorage.getItem('user')).user.name)
         }
-      }, [])
+    }, [])
+
     return (
         <div>
             <div className='nav-container'>
@@ -28,7 +22,7 @@ const Navbar = (props) => {
                 </Link>
                 <ul className='nav-links'>
                     <Link className='nav-link' to='/rentcar'>
-                        <li className='link'>Lend</li>
+                        <li className='link'>Rent</li>
                     </Link>
                     <Link className='nav-link' to='/getride'>
                         <li className='link'>Ride</li>
@@ -48,8 +42,8 @@ const Navbar = (props) => {
                     <Link className="nav-link"
                     onClick={() => {
                         signout(() => {
-                            setRedirect(true)
-                            doRedirect()
+                            localStorage.clear()
+                            props.history.push('/')
                         })
                     }}
                 >
@@ -64,7 +58,7 @@ const Navbar = (props) => {
                     
                     }
                 </ul>
-            <VNav id='vertical-nav' />
+            <VNav id='vertical-nav' {...props} />
             </div>
         </div>
 

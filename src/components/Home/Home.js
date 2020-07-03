@@ -4,28 +4,23 @@ import './home.scss'
 import { Link } from 'react-router-dom'
 import {Paper, Grid} from '@material-ui/core'
 import { getCities } from '../../apiCalls/auth'
+import Footer from '../footer/Footer'
 import {
     AttachMoneyTwoTone,
     LocationCityTwoTone,
     EmojiEventsTwoTone,
-    EmojiTransportationTwoTone,
-    Facebook,
-    Twitter,
-    Instagram,
-    LinkedIn,
-    Favorite
+    EmojiTransportationTwoTone
 } from '@material-ui/icons';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick'
 import CarSvg from '../../assets/undraw_order_ride.svg'
-import {PropagateLoader, BounceLoader} from "react-spinners";
+import {BounceLoader} from "react-spinners";
 import { css } from "@emotion/core";
 const override = css`
-    display: block;
-    margin-left:50%;
-    margin-top:50%;
-   `;
+  display: block;
+  margin: 0 auto;
+`;
 
 const Home = (props) => {
     const settings = {
@@ -45,31 +40,32 @@ const Home = (props) => {
             console.log(data)
         })
     }, [])
-    const loader = () => {
-        if(loading === true){
-            return <BounceLoader
-            css={override}
-            size={25}
-            color={"#6C63FE"}
-            loading={loading}
-          />
-        }
-    }
+
     return (
         <div>
-            <Navbar />
+            <Navbar {...props} />
+            { loading && 
+            <div className='loader'>
+                <BounceLoader
+                    css={override}
+                    size={100}
+                    color={"#FFAFBD"}
+                    loading={loading}
+                />
+            </div>
+            }
             {
                 !loading &&
-                <div>
-                    <div className='home-image'>
-                <div className='home-header'>
-                    <h1>Welcome to CarHub</h1>
-                    <h3>We are the solution to your urge of travelling. Travel with carhub to find the best of kinds of cars from micro to luxury.
-                        Also earn money by using our rental services for your benefit by lending your own car for rent.
-                    </h3>
-                    <Link to='/getride' className='button-1'>Book a ride!</Link>
+            <div>
+                <div className='home-image'>
+                    <div className='home-header'>
+                        <h1>Welcome to CarHub</h1>
+                        <h3>We are the solution to your urge of travelling. Travel with carhub to find the best of kinds of cars from micro to luxury.
+                            Also earn money by using our rental services for your benefit by lending your own car for rent.
+                        </h3>
+                        <Link to='/getride' className='button-1'>Book a ride!</Link>
+                    </div>
                 </div>
-            </div>
             <div className='card-list'>
                 <Paper elevation={3}>
                     <LocationCityTwoTone />
@@ -105,7 +101,7 @@ const Home = (props) => {
             }}>Your one stop to every destination is <em style={{color: '#c354ab', fontWeight: '400'}}>CarHub</em></h1>
 
             <div className='button-section'>
-                <div className="image">
+                <div>
                     <img src={CarSvg} alt=""/>
                 </div>
                 <div className='btn-pair'>
@@ -145,45 +141,8 @@ const Home = (props) => {
                     }} />
                 </div>
             </div>
-            <div className='footer-container'>
-                <footer className='footer'>
-                    <h1>CarHub</h1>
-                    <div className='footer-links'>
-                        <h3
-                            className='footer-link'
-                            onClick={() => props.history.push('/getride')}
-                        >Ride Now</h3>
-                        <h3
-                            className='footer-link'
-                            onClick={() => props.history.push('/rentcar')}
-                        >Rent Car</h3>
-                        <h3 className='footer-link'>About</h3>
-                        <h3 className='footer-link'>Contact</h3>
-                    </div>
-                    
-                    <div className='footer-icons'>
-                        <Facebook style={{
-                            color: 'rgb(58,85,159)',
-                        }} className='footer-icon' />
-                        <Twitter style={{
-                            color: 'rgb(1,173,237)'
-                        }} className='footer-icon' />
-                        <Instagram style={{
-                            color: 'rgb(251,61,87)'
-                        }} className='footer-icon' />
-                        <LinkedIn style={{
-                            color: 'rgb(22,134,176)'
-                        }} className='footer-icon' />
-                    </div>
-                </footer>
-                <h4 className='copyright'>
-                    © 2020 CarHub. Made with love
-                    <Favorite style={{
-                        color: 'red'
-                    }} />
-                </h4>
+            <Footer {...props} />
             </div>
-                </div>
             }
         </div>
     )

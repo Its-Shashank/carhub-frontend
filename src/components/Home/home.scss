@@ -7,9 +7,16 @@ $purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ E
 $lightOrange: #FFAFBD;  /* fallback for old browsers */
 $lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
 $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- 
+$perfectGrey: rgb(243, 243, 241);
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 40vh auto;
+}
+
 .home-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
     background-position: center;
@@ -51,11 +58,17 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
             align-items: center;
             justify-content: center;
             background-color: transparent;
-            border: $w solid 1px;
-            color: $w;
             font-size: 1.1rem;
+            transition: 300ms;
+            opacity: 0.8;
+            background-color: $perfectGrey;
+            border: $perfectGrey solid 1px;
+            color: black;
             &:hover {
-                opacity: 0.8;
+                transition: 300ms;
+                border: $w solid 1px;
+                background-color: transparent;
+                color: $w;
             }
         }
     }
@@ -66,6 +79,7 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
 .card-list {
     display: flex;
     margin-left: 15vw;
+    margin-bottom: 10vh;
     transform: translateY(-3rem);
     .MuiPaper-root {
         height: 10rem;
@@ -85,13 +99,13 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
 }
 
 .about-here {
-    background-color: rgb(243, 243, 241);
+    background-color: $perfectGrey;
     height: 30vh;
     font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh auto;
+    margin: 0 auto 10vh;
     padding: 5rem 11rem;
     width: 80%;
 }
@@ -129,7 +143,7 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
                 color: $lightOrange;
                 border: $lightOrange solid 4px;
                 background-color: $w;
-                transition: 300ms;
+                transition: 300ms all;
             }
         }
     }

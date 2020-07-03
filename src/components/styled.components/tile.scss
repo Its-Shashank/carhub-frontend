@@ -1,0 +1,105 @@
+$darkBlue: rgb(40,44,52);
+$blue: rgb(97,218,251);
+$w: rgb(255, 255, 255);
+$perfectGrey: rgb(243, 243, 241);
+$purpleOne: #C33764;  /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #FFAFBD;  /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+.tile-container {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+            0 6px 30px 5px rgba(0, 0, 0, 0.12), 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    border: blue solid 2px;
+    margin: 2rem 5%;
+
+    .car-text {
+        padding-left: 2rem;
+
+        .car-name {
+            font-weight: 400;
+            display: inline;
+        }
+        .car-category {
+            display: inline;
+        }
+        // .car-year {
+
+        // }
+        .car-price {
+            font-size: 2em;
+            background-color: rgb(235, 235, 235);
+            padding: 1rem;
+            width: fit-content;
+        }
+        
+        .discount {
+            font-size: 20px;
+            font-weight: 500;
+            color: rgb(133, 192, 44);
+        }
+        .tags {
+            color: rgb(189, 179, 179);
+            font-weight: 500;
+        }
+    }
+    .car-thumbnail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .car-tile {
+            width: 500px;
+            margin: 0 auto;
+        }
+    }
+}
+
+// date styles
+.direction-btns {
+    .date-btn {
+        cursor: pointer;
+        border: none;
+        margin: 0.5rem;
+        width: 8rem;
+        height: 3rem;
+        background-color: $purpleOne;
+        color: $w;
+        transition: all 300ms;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
+
+
+// confirmation page
+.order-confirm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+    background-color: $lightOrange;
+
+    .order-btns {
+
+        .ride-btn {
+            cursor: pointer;
+            border: none;
+            background-color: $darkBlue;
+            color: $w;
+            height: 3rem;
+            width: 8rem;
+            margin: 0.5rem;
+            transition: all 300ms;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+}

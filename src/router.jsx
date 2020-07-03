@@ -4,7 +4,6 @@ import RentCar from './components/lendCar/RentCar'
 import Signup from './components/authentication/Signup'
 import Login from './components/authentication/Login'
 import Home from './components/Home/Home'
-import Dashboard from './components/dashboard/Dashboard'
 import RideCar from './components/getRide/Ride'
 import PrivateRoute from './apiCalls/PrivateRoute'
 
@@ -31,9 +30,6 @@ function router() {
                     />
                     <Route path='/getride'
                         exact component={RideCar}
-                    />
-                    <PrivateRoute path='/dashboard'
-                        exact component={Dashboard}
                     />
                 </Switch>
             </BrowserRouter>

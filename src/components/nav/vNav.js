@@ -34,6 +34,7 @@ function Nav(props) {
 
   useEffect(() => {
     if (localStorage.getItem('user')) {
+      // console.log(localStorage.getItem('user'))
       setName(JSON.parse(localStorage.getItem('user')).user.name)
     }
   }, [])
@@ -66,13 +67,13 @@ function Nav(props) {
                 onClick={toggleDrawer(anchor, false)}
                 onKeyDown={toggleDrawer(anchor, false)}
                 >
-                Lend
+                Rent Car
                 </Link>
                 <Link className='vertical-link' to='/getride'
                 onClick={toggleDrawer(anchor, false)}
                 onKeyDown={toggleDrawer(anchor, false)}
                 >
-                Ride
+                Ride Now
                 </Link>
 
                 { !isAuthenticated() &&

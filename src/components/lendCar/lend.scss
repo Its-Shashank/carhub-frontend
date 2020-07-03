@@ -1,24 +1,213 @@
 $darkBlue: rgb(40,44,52);
 $blue: rgb(97,218,251);
 $w: rgb(255, 255, 255);
+$perfectGrey: rgb(243, 243, 241);
+$purpleOne: #C33764;  /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #FFAFBD;  /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.cities-container {
-    display: flex;
-    align-items: center;
-    height: 400px;
+.rent-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-    background-color: $blue;
-
-    .city {
-        cursor: pointer;
-        font-size: 1.5rem;
-        margin-left: 10px;
+    height: 70vh;
+    .rent-header {
+        font-family: 'Lato', sans-serif;
+        font-size: 1.5em;
+        width: 40%;
+        color: $w;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15vw;
+        h1 {
+            font-size: 3em;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 5px;
+        }
+        h3 {
+            font-weight: 100;
+            width: 85%;
+        }
     }
 }
 
-.form-control {
+.below-rent-img {
+    // background-color: rgb(221, 247, 255);
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    width: 40%;
+    align-items: center;
+    justify-content: center;
+    padding: 10vh 0;
+    .features {
+        display: flex;
+        width: 60%;
+        margin-top: 3vh;
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: $darkBlue solid 1px;
+            background-color: $w;
+            padding: 20px 15px;
+            margin: 0 10px;
+        }
+    }
+}
+
+.cities-container {
+    // margin: 10vh 5vw;
+    padding: 0 15vw;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+            0 6px 30px 5px rgba(0, 0, 0, 0.12), 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2);
+     
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    // grid-auto-rows: 70px;
+    justify-items: center;
+    align-content: center;
+    grid-gap: 20px;
+    height: 300px;
+    position: relative;
+    //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1429667947446-3c93a979b7e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .city {
+        height: 50px;
+        width: 10rem;
+        cursor: pointer;
+        padding: 10px;
+        color: rgb(175, 167, 167);
+        background-color: $perfectGrey;
+        margin: auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 80px;
+        font-size: 1.3rem;
+        font-weight: 400;
+        // margin-left: 10px;
+    }
+}
+.car-form-container {
+    height: 60vh;
+    // opacity: 0.6;
+    margin-bottom: 5vh;
+    // background-image: url('https://ak.picdn.net/shutterstock/videos/28379626/thumb/8.jpg');
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    padding-top: 2rem;
+    .car-page-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+        margin: 0 20%;
+        grid-auto-rows: minmax(50px, auto);
+        
+        .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, .5);
+            &:focus {
+                border-color: black;
+            }
+        }
+        .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, .5);
+            background-color: $w;
+            border-width: 2px;
+        }
+        .input-container {
+            width: 100%;
+            .car-inputs {
+                width: 100%;
+                height: 85%;
+                margin-top: 5px;
+            }
+            
+            
+        }
+        #car-brand {
+            grid-column: 1 / 3;
+        }
+        #photo-label {
+            grid-column: 1 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 60px;
+            // background-color: $purpleOne;
+            border: rgb(150, 143, 143) 1px dashed;
+        }
+        .loader {
+            margin: 0 auto;
+        }
+        .car-submit {
+            cursor: pointer;
+            box-sizing: border-box;
+            grid-column: 1 / 3;
+            width: 20%;
+            margin: 0 auto;
+            // margin-top: 20px;
+            padding: 20px 0;
+            border: none;
+            background-color: $purpleOne;
+            color: $w;
+            border: $purpleOne solid 3px;
+            font-size: 1.1em;
+            border-radius: 40px;
+            transition: 300ms;
+            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+            0 6px 30px 5px rgba(0, 0, 0, 0.12), 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2);
+     
+
+            &:hover {
+                transition: 300ms;
+                background-color: $w;
+                color: $purpleOne;
+                border: $purpleOne solid 3px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.my-car-container {
+    height: 30vh;
+    padding-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $lightOrange;
+
+    .remove-btn {
+        cursor: pointer;
+        border: none;
+        height: 3rem;
+        width: 8rem;
+        border-radius: 5px;
+        background-color: $darkBlue;
+        color: $w;
+        transition: all 300ms;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 }

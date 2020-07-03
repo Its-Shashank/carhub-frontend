@@ -1,0 +1,91 @@
+$darkBlue: rgb(40,44,52);
+$blue: rgb(97,218,251);
+$w: rgb(255, 255, 255);
+$perfectGrey: rgb(243, 243, 241);
+$purpleOne: #C33764;  /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #FFAFBD;  /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 40vh auto;
+}
+
+.ride-page-top {
+    padding-top: 10vh;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: center;
+    align-content: center;
+    background-color: #333;
+
+    .ride-header {
+        // width: 100%;
+        font-family: 'Lato', sans-serif;
+        align-self: center;
+        color: $perfectGrey;
+        h1 {
+            font-size: 4rem;
+            font-weight: 400;
+        }
+        h3 {
+            font-size: 1.5em;
+            font-weight: 100;
+        }
+    }
+
+    .circle {
+        background-color: lavender;
+        height: 40vh;
+        width: 20vh;
+        border-radius: 50%;
+
+        .inside-circle {
+            margin-top: 15vh;
+            margin-left: -15vw;
+            height: 20vh;
+            width: 40vh;
+            background-color: rgb(243, 157, 157);
+            border-radius: 50%;
+        }
+    }
+}
+
+.ride-page-cities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 5rem;
+    // padding-top: 10vh;
+    // .ride-page-cities {
+    //     display: grid;
+    //     grid-template-columns: repeat(6, 1fr);
+    //     grid-gap: 2%;
+    //     justify-items: center;
+    //     cursor: pointer;
+    // }
+}
+
+.current-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vh;
+    background-color: $perfectGrey;
+
+    h1 {
+        color: $purpleOne;
+    }
+
+    h3 {
+        font-weight: 400;
+    }
+}

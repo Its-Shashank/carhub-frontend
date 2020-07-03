@@ -1,5 +1,86 @@
-.form-data {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+$darkBlue: rgb(40,44,52);
+$blue: rgb(97,218,251);
+$w: rgb(255, 255, 255);
+$purpleOne: #C33764;  /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #FFAFBD;  /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$perfectGrey: rgb(243, 243, 241);
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+
+.login-container {
+    height: 100vh;
+    // background-color: $perfectGrey;
+    .error-message {
+        text-align: center;
+        padding: 1vh 0;
+        color: white;
+        width: 100%;
+        font-size: 2em;
+        position: absolute;
+        animation: dropDown 1s ease-in-out 0.3s 1;
+        animation-fill-mode: forwards;
+        background-color: red;
+    }
+    .form-container {
+        display: flex;
+        height: 50vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            margin-top: 5vh;
+            color: grey;
+        }
+    
+        .form-control {
+            margin-bottom: -15vh;
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            z-index: 1;
+
+            .auth-labels {
+                color: $darkBlue;
+                font-weight: 400;
+            }
+            .auth-inputs {
+                width: 40vw;
+                padding: 20px;
+                margin: 10px 0;
+                border: $darkBlue solid 1px;
+                z-index: 1;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            .auth-submit {
+                width: 6rem;
+                height: 3rem;
+                border: none;
+                background-color: $purpleOne;
+                color: $w;
+            }
+        }
+    }
+    .image {
+        display: flex;
+        height: 45vh;
+        justify-content: center;
+    }
+}
+
+@keyframes dropDown {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 9vh;
+    }
 }
