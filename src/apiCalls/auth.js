@@ -1,4 +1,5 @@
-const API = 'http://localhost:5000/api'
+// const API = 'http://localhost:5000/api'
+const API = 'https://carhub-backend.herokuapp.com/api'
 
 // user route calls
 export const signup = user => {

@@ -21,7 +21,7 @@ function Ride(props) {
     const [filteredCars, setFilteredCars] = useState([])
     const [loading, setLoading] = useState(false)
     // const [selectedCity, setSelectedCity] = useState('')
-    const [url, setUrl] = useState('')
+    const [url, setUrl] = useState([])
 
     useEffect(() => {
         setLoading(true)
@@ -42,13 +42,15 @@ function Ride(props) {
     const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
-        if (localStorage.getItem('rideId')) {
+        if (localStorage.getItem('rideId') && allcars) {
             const filteredCars = allcars.filter(car => car.city._id === value && car._id !== localStorage.getItem('rideId'))
             setFilteredCars(filteredCars)
         }
         else {
-            const filteredCars = allcars.filter(car => car.city._id === value)
-            setFilteredCars(filteredCars)
+            if (allcars) {
+                const filteredCars = allcars.filter(car => car.city._id === value)
+                setFilteredCars(filteredCars)
+            }
         }
     }, [value])
 
@@ -59,7 +61,7 @@ function Ride(props) {
             getPhoto(car._id)
             .then(image => {
                 setLoading(false)
-                setUrl(image.url)
+                setUrl(url => url.concat(image.url))
                 console.log(image.url)
             })
             .catch(err => console.log(err))
@@ -138,7 +140,7 @@ function Ride(props) {
                                     key={index}
                                     value={car._id}
                                     car={car}
-                                    url={url}
+                                    url={url[index]}
                                 />
                             ))
                         }

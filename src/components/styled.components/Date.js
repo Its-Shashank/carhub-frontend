@@ -27,10 +27,6 @@ function MyApp(props) {
 		props.prevStep()
 	}
 
-	const handleClickOpen = () => {
-		setOpen(true)
-	}
-
 	const handleClose = () => {
 		setOpen(false)
 	}
